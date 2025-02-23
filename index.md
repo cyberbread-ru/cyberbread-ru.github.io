@@ -5,5 +5,5 @@
 
 ## достучаться до меня
 
- - [почта](mailto:git@cyberbread.ru)
+ - [почта](mailto:ws.overfill328@passfwd.com)
  - [основной сайт](https://cyberbread.ru)
