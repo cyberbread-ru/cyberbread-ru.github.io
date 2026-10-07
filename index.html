@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ГЕЛБОРУ.РФ — Здесь должен был быть хентай</title>
+  <meta name="description" content="Самый дешёвый способ разочароваться в 2026 году. Домен дешевле пачки Lay's.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* ===== DISCLAIMER OVERLAY ===== */
+    #disclaimer {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    #disclaimer.hidden {
+      display: none;
+    }
+
+    .disclaimer-box {
+      background: #1a1a1a;
+      border: 2px solid #ff2d55;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(255, 45, 85, 0.25);
+    }
+
+    .disclaimer-box h2 {
+      color: #ff2d55;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .disclaimer-box p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: #ccc;
+    }
+
+    .disclaimer-box .warning {
+      color: #ffcc00;
+      font-weight: 600;
+      margin: 20px 0;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .btn:hover {
+      transform: scale(1.04);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-accept {
+      background: #ff2d55;
+      color: #fff;
+    }
+
+    .btn-decline {
+      background: #333;
+      color: #aaa;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    #main {
+      display: none;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    #main.visible {
+      display: block;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .logo {
+      font-size: 3.2rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: #ff2d55;
+      text-shadow: 0 0 20px rgba(255, 45, 85, 0.5);
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: #aaa;
+      font-style: italic;
+    }
+
+    .hero {
+      background: #141414;
+      border: 1px solid #333;
+      border-radius: 16px;
+      padding: 36px 28px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #bbb;
+      margin-bottom: 24px;
+    }
+
+    .price-compare {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 28px 0;
+    }
+
+    .price-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px 28px;
+      min-width: 160px;
+      border: 1px solid #333;
+    }
+
+    .price-card .label {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .price-card .value {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .price-card.domain .value {
+      color: #4ade80;
+    }
+
+    .price-card.chips .value {
+      color: #f87171;
+    }
+
+    .price-card .note {
+      font-size: 0.75rem;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .action-btn {
+      display: block;
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.15s, background 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-porn {
+      background: #ff2d55;
+      color: #fff;
+    }
+
+    .btn-empty {
+      background: #333;
+      color: #ddd;
+    }
+
+    .btn-buy {
+      background: #1e3a5f;
+      color: #93c5fd;
+    }
+
+    .section {
+      background: #141414;
+      border: 1px solid #333;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .section h2 {
+      font-size: 1.3rem;
+      color: #ff2d55;
+      margin-bottom: 14px;
+    }
+
+    .section p {
+      color: #bbb;
+      margin-bottom: 10px;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section li {
+      padding: 8px 0;
+      border-bottom: 1px solid #2a2a2a;
+      color: #ccc;
+    }
+
+    .section li:last-child {
+      border-bottom: none;
+    }
+
+    .section li::before {
+      content: "› ";
+      color: #ff2d55;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #222;
+      color: #555;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #777;
+      text-decoration: none;
+    }
+
+    .tiny {
+      font-size: 0.75rem;
+      color: #444;
+      margin-top: 12px;
+    }
+
+    /* empty page modal */
+    #empty-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #0a0a0a;
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #empty-modal.visible {
+      display: flex;
+    }
+
+    #empty-modal h2 {
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    #empty-modal p {
+      color: #aaa;
+      max-width: 400px;
+      margin: 0 auto 24px;
+    }
+
+    #empty-modal button {
+      background: #333;
+      color: #ddd;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DISCLAIMER -->
+  <div id="disclaimer">
+    <div class="disclaimer-box">
+      <h2>⚠ ДИСКЛЕЙМЕР</h2>
+      <p>Этот сайт содержит <strong>вульгарный юмор</strong>, отсылки к порносайтам и лёгкую экзистенциальную депрессию.</p>
+      <p>Если тебе меньше 18, или ты легко обижаешься — лучше закрой вкладку и купи чипсы.</p>
+      <p class="warning">Нажимая «Мне уже можно», ты подтверждаешь, что готов к похабщине и берёшь всю ответственность на себя.</p>
+      <div class="btn-row">
+        <button class="btn btn-accept" onclick="acceptDisclaimer()">Мне уже можно</button>
+        <button class="btn btn-decline" onclick="declineDisclaimer()">Я ещё ребёнок</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main">
+    <header>
+      <div class="logo">ГЕЛБОРУ</div>
+      <div class="tagline">.рф</div>
+    </header>
+
+    <div class="hero">
+      <h1>Здесь должен был быть хентай</h1>
+      <p class="sub">Но вместо этого ты купил домен дешевле пачки Lay’s «Сметана и зелень»</p>
+
+      <div class="price-compare">
+        <div class="price-card domain">
+          <div class="label">Домен гелбору.рф</div>
+          <div class="value">200 ₽</div>
+          <div class="note">на год</div>
+        </div>
+        <div class="price-card chips">
+          <div class="label">Пачка Lay’s 240г</div>
+          <div class="value">249 ₽</div>
+          <div class="note">на один вечер</div>
+        </div>
+      </div>
+
+      <p style="color:#888; font-size:0.95rem;">
+        7 октября 2026 года приоритеты были расставлены правильно.
+      </p>
+
+      <div class="buttons">
+        <a class="action-btn btn-porn" href="https://gelbooru.com" target="_blank" rel="noopener">
+          Всё равно хочу порно →
+        </a>
+        <button class="action-btn btn-empty" onclick="showEmpty()">
+          Посмотреть, на что я потратил 200 рублей
+        </button>
+        <a class="action-btn btn-buy" href="https://timeweb.cloud/my/domains" target="_blank" rel="noopener">
+          Купить ещё один бесполезный домен
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Что здесь есть</h2>
+      <ul>
+        <li>Никакого хентая (Роскомнадзор сказал «нельзя»)</li>
+        <li>Полная экзистенциальная пустота</li>
+        <li>Лёгкий привкус сметаны с зеленью</li>
+        <li>Осознание, что 200 рублей можно было потратить с большим умом</li>
+        <li>Кнопка, которая ведёт на настоящий Gelbooru (ты сам виноват)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Часто задаваемые вопросы</h2>
+      <p><strong>Это настоящий Gelbooru?</strong><br>
+      Нет. Это его более бедный, более депрессивный и полностью легальный родственник.</p>
+      <p><strong>Почему так дёшево?</strong><br>
+      Потому что никто в здравом уме не хотел этот домен. Кроме тебя.</p>
+      <p><strong>Можно ли здесь дрочить?</strong><br>
+      Технически — да. Но контента для этого нет. Только боль и чипсы.</p>
+      <p><strong>Что будет через год?</strong><br>
+      Домен освободится 7 ноября 2027. Можешь купить снова. Или уже купи чипсы.</p>
+    </div>
+
+    <footer>
+      <p>гелбору.рф · зарегистрирован 07.10.2026 · Timeweb</p>
+      <p class="tiny">
+        Сайт не содержит порнографии, материалов 18+ и даже намёков на них.<br>
+        Зато содержит осознание тщетности всего сущего и лёгкий голод.
+      </p>
+    </footer>
+  </div>
+
+  <!-- EMPTY MODAL -->
+  <div id="empty-modal">
+    <div>
+      <h2>Тут мог бы быть твой любимый тег</h2>
+      <p>
+        А мог бы быть и чипсы.<br>
+        Но ты выбрал это.<br><br>
+        Пустота смотрит на тебя.<br>
+        И она стоит 200 рублей.
+      </p>
+      <button onclick="hideEmpty()">Вернуться к разочарованию</button>
+    </div>
+  </div>
+
+  <script>
+    function acceptDisclaimer() {
+      document.getElementById('disclaimer').classList.add('hidden');
+      document.getElementById('main').classList.add('visible');
+      // запоминаем, чтобы не показывать каждый раз
+      try { localStorage.setItem('gelboru_accepted', '1'); } catch(e) {}
+    }
+
+    function declineDisclaimer() {
+      window.location.href = 'https://www.lays.ru/';
+    }
+
+    function showEmpty() {
+      document.getElementById('empty-modal').classList.add('visible');
+    }
+
+    function hideEmpty() {
+      document.getElementById('empty-modal').classList.remove('visible');
+    }
+
+    // если уже принимал — сразу показываем
+    try {
+      if (localStorage.getItem('gelboru_accepted') === '1') {
+        acceptDisclaimer();
+      }
+    } catch(e) {}
+  </script>
+</body>
+</html>
